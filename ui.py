@@ -16,7 +16,8 @@ def card_ui(card_id, card):
                 "ondragleave": "dragLeave(event)",
             }
         ),
-        class_="card",
+        #class_="card",
+        class_=f"card {'card-playable' if card.value != 'Blank' else ''}",
         id=card_id,
     )
 
