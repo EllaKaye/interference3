@@ -56,8 +56,8 @@ with open("instructions.md", "r") as file:
 
 # some styles, which need to override the bootstrap defaults,
 # need to be in a style tag, rather than linking to a css stylesheet in a link tag
-# so I've put them in a text file
-with open("www/styles.txt", "r") as file:
+# so read in the file here
+with open("styles.css", "r") as file:
     styles = file.read()
 
 def md_panel(id, md):
@@ -78,9 +78,8 @@ app_ui = ui.page_navbar(
     md_panel("instructions", instructions),
     md_panel("about", about),
     header = ui.tags.head(
-        ui.tags.link(rel="stylesheet", href="styles.css"),
         ui.tags.link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Figtree"),
-        ui.tags.style(styles),  # for styles that need to override bootstrap defaults
+        ui.tags.style(styles),  # some styles need to override bootstrap defaults so have to be in style tag
         ui.tags.script(src="js/card-selection.js"),
         ui.tags.script(src="js/drag-drop.js"),
         ui.tags.script(src="js/md-navigation.js")
