@@ -54,6 +54,12 @@ with open("about.md", "r") as file:
 with open("instructions.md", "r") as file:
     instructions = file.read()
 
+# some styles, which need to override the bootstrap defaults,
+# need to be in a style tag, rather than linking to a css stylesheet in a link tag
+# so I've put them in a text file
+with open("www/styles.txt", "r") as file:
+    styles = file.read()
+
 def md_panel(id, md):
     return ui.nav_panel(
     id, 
@@ -66,6 +72,7 @@ def md_panel(id, md):
     )
 )
 
+
 app_ui = ui.page_navbar(
     interference_panel,
     md_panel("instructions", instructions),
@@ -73,63 +80,10 @@ app_ui = ui.page_navbar(
     header = ui.tags.head(
         ui.tags.link(rel="stylesheet", href="styles.css"),
         ui.tags.link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Figtree"),
+        ui.tags.style(styles),  # for styles that need to override bootstrap defaults
         ui.tags.script(src="js/card-selection.js"),
         ui.tags.script(src="js/drag-drop.js"),
-        ui.tags.script(src="js/md-navigation.js"),
-        ui.tags.style(
-            """
-            .modal-content {
-                background-color: #156645 !important;
-            }
-            .cards-container {
-                display: grid;
-                grid-template-columns: repeat(13, 1fr);
-                gap: calc(1vw) 1px;
-                justify-items: center;
-            }
-            .row {
-                display: contents;
-            }
-            .card {
-                box-shadow: none;
-                border: none;
-                margin: 0;
-                cursor: pointer;
-            }
-            .card-image {
-                width: 100%;
-                height: auto;
-                max-width: calc(100vw / 15);
-            }
-            .card.selected {
-                box-shadow: 0 0 10px 5px rgba(0,0,255,0.5);
-            }
-            @media (max-width: 1200px) {
-                .cards-container {
-                    gap: calc(1.5vw + 5px) 1px;
-                }
-                .card-image {
-                    max-width: calc(100vw / 14);
-                }
-            }
-            @media (max-width: 900px) {
-                .cards-container {
-                    gap: calc(1vw + 5px) 1px;
-                }
-                .card-image {
-                    max-width: calc(100vw / 13);
-                }
-            }
-            @media (max-width: 600px) {
-                .cards-container {
-                    gap: calc(0.5vw + 5px) 1px;
-                }
-                .card-image {
-                    max-width: calc(100vw / 12);
-                }
-            }
-            """
-        )
+        ui.tags.script(src="js/md-navigation.js")
     )
 )
 
