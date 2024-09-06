@@ -84,7 +84,7 @@ app_ui = ui.page_navbar(
             .cards-container {
                 display: grid;
                 grid-template-columns: repeat(13, 1fr);
-                gap: calc(2vw) 1px;
+                gap: calc(1vw) 1px;
                 justify-items: center;
             }
             .row {
