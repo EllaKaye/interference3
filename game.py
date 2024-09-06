@@ -210,13 +210,13 @@ class Game:
                 self.success = self.rows.all_ordered()
                 if self.success:
                     logger.info("Game won!")
-                    self.game_over_title = "Success!"
+                    self.game_over_title.set("Success!")
                 elif self._round == 3 and not self.success:
                     logger.info("Game over")
-                    self.game_over_title = "Game over"
+                    self.game_over_title.set("Game over")
                 else:               
                     logger.info("Round over")
-                    self.round_over_title = "Round over"
+                    self.round_over_title.set("Round over")
             return True
         else:
             logger.info("Swap unsuccessful")
