@@ -47,7 +47,6 @@ interference_panel = ui.nav_panel(
     )
 )
 
-# ... (keep the rest of your UI code, including md_panel definitions)
 
 with open("about.md", "r") as file:
     about = file.read()
@@ -85,7 +84,7 @@ app_ui = ui.page_navbar(
             .cards-container {
                 display: grid;
                 grid-template-columns: repeat(13, 1fr);
-                gap: calc(2vw + 2px) 1px;
+                gap: calc(2vw) 1px;
                 justify-items: center;
             }
             .row {
@@ -98,7 +97,7 @@ app_ui = ui.page_navbar(
                 cursor: pointer;
             }
             .card-image {
-                width: 120%;
+                width: 100%;
                 height: auto;
                 max-width: calc(100vw / 15);
             }
