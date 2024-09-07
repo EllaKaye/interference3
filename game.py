@@ -88,6 +88,10 @@ class Rows(list):
             return self[card_row][card_index - 1]  # the card to the left of `card`
 
     def is_valid_move(self, card1: Card, card2: Card) -> bool:
+        
+        if card2.value != "Blank":
+            return False
+        
         test_card = self.get_test_card(card2)
 
         if not test_card and card1.value == "2":
