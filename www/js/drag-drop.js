@@ -114,12 +114,6 @@ function drop(event) {
     dragFeedback = null;
 }
 
-$(document).on('click', '.card', function() {
-    let cardData = $(this).find('img').attr('data-card');
-    console.log("Card clicked:", cardData);
-    Shiny.setInputValue('card_clicked', cardData, {priority: 'event'});
-});
-
 document.addEventListener('dragover', function(event) {
     event.preventDefault();
 });
