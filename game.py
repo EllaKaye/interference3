@@ -6,7 +6,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Card constants
-CARD_VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K", "Blank"]
+CARD_VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "Blank"]
 CARD_SUITS = ["S", "H", "D", "C"]
 SUIT_ICONS = {"S": "♠️", "H": "♥️", "D": "♦️", "C": "♣️"}  # for nicer print method
 VALUES_INT = {value: index for index, value in enumerate(CARD_VALUES)}
@@ -23,8 +23,10 @@ class Card:
 
     def image_path(self):
         if self.value == "Blank":
-            return "https://raw.githubusercontent.com/EllaKaye/interference/main/www/img/blank.png"  # You'll need to provide this
-        return f"https://deckofcardsapi.com/static/img/{self.value}{self.suit}.png"
+            return "img/webp/blank.webp"
+            #return "https://raw.githubusercontent.com/EllaKaye/interference/main/www/img/blank.png"  
+        #return f"https://deckofcardsapi.com/static/img/{self.value}{self.suit}.png"
+        return f"img/webp/{self.value}{self.suit}.webp"
 
 
 class Row(list):

@@ -69,15 +69,15 @@ function dragEnter(event, cardId) {
     if (targetElement) {
         const isValidTarget = targetElement.getAttribute('data-card').split(':')[0] === "Blank";
         if (isValidTarget) {
-            targetElement.src = "https://raw.githubusercontent.com/EllaKaye/interference/main/www/img/blank_valid.png";
+            targetElement.src = "img/webp/blank_valid.webp";
         }
     }
 }
 
 function dragLeave(event) {
     const targetElement = event.target.closest('.card-image');
-    if (targetElement && targetElement.src.endsWith("blank_valid.png")) {
-        targetElement.src = "https://raw.githubusercontent.com/EllaKaye/interference/main/www/img/blank.png";
+    if (targetElement && targetElement.src.endsWith("blank_valid.webp")) {
+        targetElement.src = "img/webp/blank.webp";
     }
 }
 
